@@ -50,7 +50,7 @@ FROM
   cliente_visit C
   LEFT JOIN T.totals
     ON T.totalsID = C.totalsID
-  LEFT JOIN D.device.browser
+  LEFT JOIN D.device
     ON D.deviceID = C.deviceID	
 
 
