@@ -1,0 +1,58 @@
+-- Contagem de Pageviews
+
+SELECT
+  C.fullVisitorId,
+  COUNT(T.totals.pageviews) as pageviews,
+FROM
+  cliente_visit C
+  LEFT JOIN T.totals
+    ON T.totalsID = C.totalsID	
+GROUP BY
+  fullVisitorId
+HAVING pageviews>0
+
+
+-- Número de seções por usuário
+
+SELECT
+  C.fullVisitorId,
+  SUM(T.totals.hits) as hits,
+FROM
+  cliente_visit C
+  LEFT JOIN T.totals
+    ON T.totalsID = C.totalsID	
+GROUP BY
+  fullVisitorId
+HAVING hits>0
+
+-- Sessões distintas por data
+
+SELECT 
+  visitStartTime as data, 
+  COUNT(DISTINCT 'visitID')  
+FROM visit 
+GROUP BY data('%d-%m-%Y')
+
+-- Média de duração da sessão por data
+
+SELECT 
+  AVG(totals.timeOnSite),
+  GETDATE()
+FROM totals
+
+-- Sessões diárias por tipo de browser
+
+SELECT
+  T.totals.timeOnSite,
+  D.device.browser,
+  C.fullVisitorId
+FROM
+  cliente_visit C
+  LEFT JOIN T.totals
+    ON T.totalsID = C.totalsID
+  LEFT JOIN D.device.browser
+    ON D.deviceID = C.deviceID	
+
+
+
+
