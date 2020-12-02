@@ -1,0 +1,4 @@
+Cities = "LatD", "LatM", "LatS", "NS", "LonD", "LonM", "LonS", "EW", "City", "State"
+Trees = "Index_x", "Girth", "Height", "Volume"
+
+
