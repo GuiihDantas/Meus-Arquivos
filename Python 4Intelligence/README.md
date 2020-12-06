@@ -8,5 +8,9 @@ a coluna se chamava stars eu utilizei a coluna chamada compliment_count.
 
 Das Ferramentas:
 
-Python Jupyter Notebook
+Python Jupyter Notebook e
 Banco de Dados sqlite3 
+
+Da Solução:
+
+Deixei comentado em cada linha de comando para melhor entendimento do meu raciocínio.
